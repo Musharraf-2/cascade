@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+}
+
+/* Thin, themed scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(148 163 184 / 0.5) transparent;
+}
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-400/50;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Markdown rendering inside card descriptions */
+.prose-cascade h1 {
+  @apply mb-2 mt-3 text-lg font-bold;
+}
+.prose-cascade h2 {
+  @apply mb-2 mt-3 text-base font-bold;
+}
+.prose-cascade h3 {
+  @apply mb-1 mt-2 text-sm font-semibold;
+}
+.prose-cascade p {
+  @apply mb-2 leading-relaxed;
+}
+.prose-cascade ul {
+  @apply mb-2 list-disc pl-5;
+}
+.prose-cascade ol {
+  @apply mb-2 list-decimal pl-5;
+}
+.prose-cascade li {
+  @apply mb-0.5;
+}
+.prose-cascade a {
+  @apply text-indigo-600 underline dark:text-indigo-400;
+}
+.prose-cascade code {
+  @apply rounded bg-slate-200 px-1 py-0.5 text-[0.85em] dark:bg-slate-800;
+}
+.prose-cascade pre {
+  @apply mb-2 overflow-x-auto rounded-lg bg-slate-200 p-3 dark:bg-slate-800;
+}
+.prose-cascade pre code {
+  @apply bg-transparent p-0;
+}
+.prose-cascade blockquote {
+  @apply border-l-4 border-slate-300 pl-3 italic text-slate-600 dark:border-slate-600 dark:text-slate-400;
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.25),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
